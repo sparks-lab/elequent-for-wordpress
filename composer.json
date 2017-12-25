@@ -1,0 +1,19 @@
+{
+    "name": "sparks-lab/elequent-for-wordpress",
+    "authors": [
+        {
+            "name": "Ahmed Dabak",
+            "email": "ahmed-dabak@hotmail.com"
+        }
+    ],
+    "require": {
+        "illuminate/database": "^5.5",
+        "nesbot/carbon": "^1.22",
+        "symfony/var-dumper": "^4.0"
+    },
+    "autoload" : {
+        "psr-4" : {
+            "InDepth\\ORM\\" : "orm/"
+        }
+    }
+}
