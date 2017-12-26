@@ -22,7 +22,7 @@ abstract class AbstractPost extends Model {
 
 		switch ( $post->post_type ) {
 			case 'post':
-				return  Post::find($post->ID);
+				return Post::find( $post->ID );
 				break;
 			case 'page' :
 				return Page::find( $post->ID );
@@ -44,5 +44,15 @@ abstract class AbstractPost extends Model {
 
 	public function metas() {
 		return $this->hasMany( PostMeta::class );
+	}
+
+	public function __get( $key ) {
+		$class_name = strtolower( class_basename( $this ) );
+
+		if ( null !== $this->getAttribute( $class_name . '_' . $key ) ) {
+			return $this->getAttribute( $class_name . '_' . $key );
+		}
+
+		return parent::__get( $key );
 	}
 }
